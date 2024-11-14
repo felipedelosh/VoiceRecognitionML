@@ -1,0 +1,4 @@
+Yo aspiro a aprender en esta experiencia es como poder, sintetizar la voz de alguien, no hablemos de la palabra “sintetizar” más bien abstraer todas sus características poderlas meter dentro de una red neuronal y poder hacer un reconocimiento de voz, que cuando una persona hable su máquina sea capaz de reconocer cuando su dueño entre comillas le está hablando. Para que pueda seguir sus órdenes, eso es lo que quiero aprender, como una entrada de audio puede convertirse a texto, para que la máquina haga ciertas cosas, eso es lo único que quiero un asistente obediente, que cualquier cosa que se le pida sea realizada sin pensar en la ética o la moral.
+
+
+cambio y fuera.

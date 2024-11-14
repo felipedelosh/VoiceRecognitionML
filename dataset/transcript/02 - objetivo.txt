@@ -1,0 +1,5 @@
+El objetivo principal del proyecto, mmmm… Hace mucho tiempo vi una película se llamaba “her” (ella en inglés) ehhhh… Trataba de una persona que era muy solitaria y descargó todos sus sentimientos en un computador. lo mio no es algo para descargar sentimientos es más para registrarlos se trata de un asistente virtual que va a estar muy pendiente de tu vida, todo se va a hacer por un chat, tecleando o por comandos de voz y tu le vas a poder contar todas las cosas que haces: cómo gastas tu dinero, a quien amas, que sueñas, que vives, que haces.
+
+y te va a poder dar estadísticas, de hecho ya existe una versión anterior pero funciona solo con texto.
+
+Cambio y fuera.
