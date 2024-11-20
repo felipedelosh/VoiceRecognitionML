@@ -32,6 +32,8 @@ myenv\Scripts\activate
 ```
 pip install numpy
 pip install librosa
+pip install tensorflow
+pip install keras
 ```
 
 ## :hammer_and_wrench:Tech.
