@@ -32,6 +32,7 @@ myenv\Scripts\activate
 ```
 pip install numpy
 pip install librosa
+pip install pyaudio
 pip install tensorflow
 pip install keras
 ```

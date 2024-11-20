@@ -1,7 +1,8 @@
 """
 FelipedelosH
 """
-from datetime import datetime
+from datetime import datetime 
+import json
 import os
 import librosa
 import numpy as np
@@ -54,7 +55,11 @@ _LOG = _LOG + f"Transcripts shape: {transcripts.shape}\n"
 
 # Preprocesing
 characters = set("".join(transcripts))
+with open("DATA/characters.json", "w", encoding="UTF-8") as f:
+    f.write(json.dumps(list(characters)))
 char_to_index = {ch: idx for idx, ch in enumerate(characters)}
+with open("DATA/char_to_index.json", "w", encoding="UTF-8") as f:
+    f.write(json.dumps(char_to_index))
 
 def encode_transcript(transcript):
     return [char_to_index[ch] for ch in transcript]
@@ -97,7 +102,7 @@ model.fit(audio_data, padded_transcripts, epochs=50, batch_size=32, validation_s
 # Save model
 now = datetime.now()
 formatted_date = now.strftime("%Y-%m-%d-%H.%M")
-_output_model_filename = f"model-{formatted_date}.keras"
+_output_model_filename = f"DATA/model-{formatted_date}.keras"
 model.save(_output_model_filename)
 _LOG = _LOG + f"SAVE MODEL: {_output_model_filename}\n"
 print(f"SAVE MODEL: {_output_model_filename}")
