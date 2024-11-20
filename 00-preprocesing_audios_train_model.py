@@ -48,10 +48,11 @@ for audio_file, transcript_file in zip(audio_files, transcript_files):
 audio_data = np.array(audio_data)
 transcripts = np.array(transcripts)
 
-print("Audio data shape:", audio_data.shape)
-print("Transcripts shape:", transcripts.shape)
+_LOG = _LOG + f"Audio data shape: {audio_data.shape}\n" 
+_LOG = _LOG + f"Transcripts shape: {transcripts.shape}\n" 
 
-# Preprocesar las transcripciones
+
+# Preprocesing
 characters = set("".join(transcripts))
 char_to_index = {ch: idx for idx, ch in enumerate(characters)}
 
@@ -64,7 +65,7 @@ encoded_transcripts = [encode_transcript(transcript) for transcript in transcrip
 max_len_transcripts = 13  # Ajustar a la misma longitud que la salida del modelo
 padded_transcripts = pad_sequences(encoded_transcripts, maxlen=max_len_transcripts, padding='post')
 
-print("Encoded and padded transcripts shape:", padded_transcripts.shape)
+_LOG = _LOG + f"Encoded and padded transcripts shape: {padded_transcripts.shape}\n" 
 
 # Ajustar las dimensiones de las transcripciones para que coincidan con las salidas del modelo
 padded_transcripts = np.expand_dims(padded_transcripts, axis=-1)
@@ -75,6 +76,15 @@ model.add(Input(shape=(13, 100)))
 model.add(LSTM(128, return_sequences=True))
 model.add(TimeDistributed(Dense(len(characters))))
 model.add(Activation('softmax'))
+
+# READ LAYERS ONLY TO SAVE IN LOG
+_layer_sizes = []
+for layer in model.layers:
+    if isinstance(layer, TimeDistributed) and isinstance(layer.layer, Dense):
+        _layer_sizes.append(layer.layer.units)
+    elif isinstance(layer, Dense):
+        _layer_sizes.append(layer.units)
+_LOG = _LOG + f"LAYERS OF MODEL: {str(_layer_sizes)}\n"
 
 # Compilar el modelo
 model.compile(loss='sparse_categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
@@ -89,6 +99,7 @@ now = datetime.now()
 formatted_date = now.strftime("%Y-%m-%d-%H.%M")
 _output_model_filename = f"model-{formatted_date}.keras"
 model.save(_output_model_filename)
+_LOG = _LOG + f"SAVE MODEL: {_output_model_filename}\n"
 print(f"SAVE MODEL: {_output_model_filename}")
 
 
