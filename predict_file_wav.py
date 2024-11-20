@@ -6,8 +6,6 @@ import json
 import os
 import librosa
 import numpy as np
-import pyaudio
-import wave
 from tensorflow.keras.models import load_model
 
 # Cargar el modelo
@@ -23,42 +21,10 @@ with open("DATA/char_to_index.json", "r", encoding="UTF-8") as f:
 # Crear index_to_char
 index_to_char = {idx: ch for ch, idx in char_to_index.items()}
 
-# Parámetros de grabación
-FORMAT = pyaudio.paInt16
-CHANNELS = 1
-RATE = 44100
-CHUNK = 1024
-RECORD_SECONDS = 5  # Ajusta la duración de la grabación en segundos
-WAVE_OUTPUT_FILENAME = "DATA/output.wav"
+# Definir la ruta al archivo de audio
+AUDIO_FILENAME = "DATA/holamundo.wav"
 
-# Iniciar PyAudio
-audio = pyaudio.PyAudio()
-
-# Iniciar la grabación
-stream = audio.open(format=FORMAT, channels=CHANNELS, rate=RATE, input=True, frames_per_buffer=CHUNK)
-print("Grabando...")
-
-frames = []
-
-for i in range(0, int(RATE / CHUNK * RECORD_SECONDS)):
-    data = stream.read(CHUNK)
-    frames.append(data)
-
-print("Grabación completa")
-
-# Detener la grabación
-stream.stop_stream()
-stream.close()
-audio.terminate()
-
-# Guardar la grabación en un archivo WAV
-with wave.open(WAVE_OUTPUT_FILENAME, 'wb') as wf:
-    wf.setnchannels(CHANNELS)
-    wf.setsampwidth(audio.get_sample_size(FORMAT))
-    wf.setframerate(RATE)
-    wf.writeframes(b''.join(frames))
-
-# Procesar el archivo de audio grabado
+# Procesar el archivo de audio
 def load_audio_file(file_path):
     y, sr = librosa.load(file_path, sr=None)
     return y, sr
@@ -69,7 +35,7 @@ def extract_features(y, sr, max_len=100):
     return mfccs
 
 # Cargar y procesar el archivo de audio
-y, sr = load_audio_file(WAVE_OUTPUT_FILENAME)
+y, sr = load_audio_file(AUDIO_FILENAME)
 mfccs = extract_features(y, sr)
 mfccs = np.expand_dims(mfccs, axis=0)
 
