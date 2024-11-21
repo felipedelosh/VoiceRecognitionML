@@ -78,9 +78,12 @@ for audio_file, transcript_file in zip(audio_files, transcript_files):
 
 audio_data = np.array(audio_data)
 _shape_audio_input = audio_data.shape
+_model_n_mfcc = _shape_audio_input[1]
+_model_max_len = _shape_audio_input[2]
 transcripts = np.array(transcripts)
 print("==============   STEP 3 of X  NEURAL INPUT INFORMATION ==================")
 print(f"Audio data shape: {_shape_audio_input}")
+print(f"Model INPUT: {_model_n_mfcc, _model_max_len}")
 print(f"Transcripts shape: {transcripts.shape}")
 
 

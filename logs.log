@@ -10,4 +10,4 @@ Audio data shape: (22, 13, 100)
 Transcripts shape: (22,)
 Encoded and padded transcripts shape: (22, 13)
 LAYERS OF MODEL: [73]
-SAVE MODEL: DATA/model-2024-11-20-21.57.keras
+SAVE MODEL: DATA/model-2024-11-20-22.10.keras
