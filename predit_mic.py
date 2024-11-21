@@ -8,17 +8,13 @@ import librosa
 import numpy as np
 import pyaudio
 import wave
-import subprocess
 from tensorflow.keras.models import load_model
 
-# LOADS 
-# MODEL
+# Cargar el modelo
 model_filename = 'DATA/model-2024-11-20-18.25.keras'
 model = load_model(model_filename)
 
-# Characters
-with open("DATA/characters.json", "r", encoding="UTF-8") as f:
-    characters = json.loads(f.read())
+# Cargar characters
 # Cargar char_to_index
 with open("DATA/char_to_index.json", "r", encoding="UTF-8") as f:
     char_to_index = json.loads(f.read())
@@ -32,7 +28,6 @@ RATE = 44100
 CHUNK = 1024
 RECORD_SECONDS = 5  # Ajusta la duración de la grabación en segundos
 WAVE_OUTPUT_FILENAME = "DATA/output.wav"
-CONVERTED_FILENAME = "DATA/output_256kbps.wav"
 
 # Iniciar PyAudio
 audio = pyaudio.PyAudio()
@@ -61,10 +56,7 @@ with wave.open(WAVE_OUTPUT_FILENAME, 'wb') as wf:
     wf.setframerate(RATE)
     wf.writeframes(b''.join(frames))
 
-# Convertir el audio a 256 Kbps utilizando FFmpeg
-subprocess.run(['ffmpeg', '-i', WAVE_OUTPUT_FILENAME, '-ab', '256k', CONVERTED_FILENAME])
-
-# Procesar el archivo de audio convertido
+# Procesar el archivo de audio grabado
 def load_audio_file(file_path):
     y, sr = librosa.load(file_path, sr=None)
     return y, sr
@@ -74,8 +66,8 @@ def extract_features(y, sr, max_len=100):
     mfccs = librosa.util.fix_length(mfccs, size=max_len, axis=1)
     return mfccs
 
-# Cargar y procesar el archivo de audio convertido
-y, sr = load_audio_file(CONVERTED_FILENAME)
+# Cargar y procesar el archivo de audio
+y, sr = load_audio_file(WAVE_OUTPUT_FILENAME)
 mfccs = extract_features(y, sr)
 mfccs = np.expand_dims(mfccs, axis=0)
 

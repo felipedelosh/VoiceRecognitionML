@@ -1,10 +1,12 @@
 """
 FelipedelosH
 """
+from UTIL.reconstruct_audio import reconstruct
 from datetime import datetime 
 import json
 import os
 import librosa
+import soundfile as sf
 import numpy as np
 from sklearn.preprocessing import LabelEncoder
 from tensorflow.keras.preprocessing.sequence import pad_sequences
@@ -23,6 +25,12 @@ def extract_features(y, sr, max_len=100):
     mfccs = librosa.util.fix_length(mfccs, size=max_len, axis=1)
     return mfccs
 
+def mfcc_to_audio(mfccs, sr):
+    # Try to convert MFCC to audio:
+    D = librosa.feature.inverse.mfcc_to_audio(mfccs, sr=sr)
+
+    return D
+
 dataset_path = "dataset/audio"
 transcripts_path = "dataset/transcript"
 
@@ -40,6 +48,9 @@ transcripts = []
 for audio_file, transcript_file in zip(audio_files, transcript_files):
     y, sr = load_audio_file(os.path.join(dataset_path, audio_file))
     mfccs = extract_features(y, sr)
+    # Save in TEST FOLDER
+    reconstruct(mfccs, sr, audio_file)
+    # END TO SAVE IN FOLDER TEXT
     audio_data.append(mfccs)
     
     with open(os.path.join(transcripts_path, transcript_file), 'r', encoding="UTF-8") as f:

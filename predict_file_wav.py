@@ -8,23 +8,19 @@ import librosa
 import numpy as np
 from tensorflow.keras.models import load_model
 
-# Cargar el modelo
+# LOAD MODEL
 model_filename = 'DATA/model-2024-11-20-18.25.keras'
 model = load_model(model_filename)
 
-# Cargar characters
-with open("DATA/characters.json", "r", encoding="UTF-8") as f:
-    characters = json.loads(f.read())
-# Cargar char_to_index
+# characters
 with open("DATA/char_to_index.json", "r", encoding="UTF-8") as f:
     char_to_index = json.loads(f.read())
-# Crear index_to_char
+
 index_to_char = {idx: ch for ch, idx in char_to_index.items()}
 
-# Definir la ruta al archivo de audio
 AUDIO_FILENAME = "DATA/holamundo.wav"
 
-# Procesar el archivo de audio
+# Proccess Audio
 def load_audio_file(file_path):
     y, sr = librosa.load(file_path, sr=None)
     return y, sr
