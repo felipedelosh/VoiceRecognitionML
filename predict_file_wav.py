@@ -1,6 +1,7 @@
 """
 FelipedelosH
 """
+from UTIL.reconstruct_audio import reconstruct
 from datetime import datetime
 import json
 import os
@@ -28,6 +29,7 @@ def load_audio_file(file_path):
 def extract_features(y, sr, max_len=1732):
     mfccs = librosa.feature.mfcc(y=y, sr=sr, n_mfcc=13)
     mfccs = librosa.util.fix_length(mfccs, size=max_len, axis=1)
+    reconstruct(mfccs, sr, "holamundo.wav")
     return mfccs
 
 # Cargar y procesar el archivo de audio
