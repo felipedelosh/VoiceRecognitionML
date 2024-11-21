@@ -12,7 +12,7 @@ from tensorflow.keras.preprocessing.sequence import pad_sequences
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import LSTM, Dense, TimeDistributed, Activation, Input
 
-_LOG = ""
+_LOG = "transposed matrix\n"
 
 # 00 Configure path folder
 dataset_path = "dataset/audio"
