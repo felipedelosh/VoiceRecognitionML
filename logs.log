@@ -1,3 +1,4 @@
+TOTAL AUDIOS: 22
 TOTAL AUDIOS.WAV DETECTED: 22
 AUDIOS.WAV DETECTED: 
 ['00 - introducción.wav', '01 - inspiración.wav', '02 - objetivo.wav', '03 - por que mi propia voz.wav', '04 - planes de utilización.wav', '05 - impacto en mi vida y la de los demás.wav', '06 - aprender.wav', '07 - motivación para seguir adelante.wav', '08 - mi nombre y mi nacimiento.wav', '09 - infancia y familia.wav', '10 - primeros recuerdos.wav', '11 - escuela.wav', '12 - profesor significativo.wav', '13 - elección de carrera.wav', '14 - momento más feliz de mi vida.wav', '15 - filosofia.wav', '16 - religión y espiritualidad.wav', '17 - conexiónes y amistad.wav', '18 - pasatiempos.wav', '19 - libros peliculas y música.wav', '21 - consejo para mi yo joven.wav', '22 - sentirme orgulloso.wav']
@@ -8,26 +9,4 @@ Audio data shape: (22, 13, 100)
 Transcripts shape: (22,)
 Encoded and padded transcripts shape: (22, 13)
 LAYERS OF MODEL: [73]
-SAVE MODEL: DATA/model-2024-11-20-20.43.keras
-TOTAL AUDIOS.WAV DETECTED: 22
-AUDIOS.WAV DETECTED: 
-['00 - introducción.wav', '01 - inspiración.wav', '02 - objetivo.wav', '03 - por que mi propia voz.wav', '04 - planes de utilización.wav', '05 - impacto en mi vida y la de los demás.wav', '06 - aprender.wav', '07 - motivación para seguir adelante.wav', '08 - mi nombre y mi nacimiento.wav', '09 - infancia y familia.wav', '10 - primeros recuerdos.wav', '11 - escuela.wav', '12 - profesor significativo.wav', '13 - elección de carrera.wav', '14 - momento más feliz de mi vida.wav', '15 - filosofia.wav', '16 - religión y espiritualidad.wav', '17 - conexiónes y amistad.wav', '18 - pasatiempos.wav', '19 - libros peliculas y música.wav', '21 - consejo para mi yo joven.wav', '22 - sentirme orgulloso.wav']
-TOTAL AUDIOS.TXT DETECTED: 22
-AUDIOS.TXT DETECTED: 
-['00 - introducción.txt', '01 - inspiración.txt', '02 - objetivo.txt', '03 - por que mi propia voz.txt', '04 - planes de utilización.txt', '05 - impacto en mi vida y la de los demás.txt', '06 - aprender.txt', '07 - motivación para seguir adelante.txt', '08 - mi nombre y mi nacimiento.txt', '09 - infancia y familia.txt', '10 - primeros recuerdos.txt', '11 - escuela.txt', '12 - profesor significativo.txt', '13 - elección de carrera.txt', '14 - momento más feliz de mi vida.txt', '15 - filosofia.txt', '16 - religión y espiritualidad.txt', '17 - conexiónes y amistad.txt', '18 - pasatiempos.txt', '19 - libros peliculas y música.txt', '21 - consejo para mi yo joven.txt', '22 - sentirme orgulloso.txt']
-Audio data shape: (22, 13, 100)
-Transcripts shape: (22,)
-Encoded and padded transcripts shape: (22, 13)
-LAYERS OF MODEL: [73]
-SAVE MODEL: DATA/model-2024-11-20-21.41.keras
-TOTAL AUDIOS.WAV DETECTED: 22
-AUDIOS.WAV DETECTED: 
-['00 - introducción.wav', '01 - inspiración.wav', '02 - objetivo.wav', '03 - por que mi propia voz.wav', '04 - planes de utilización.wav', '05 - impacto en mi vida y la de los demás.wav', '06 - aprender.wav', '07 - motivación para seguir adelante.wav', '08 - mi nombre y mi nacimiento.wav', '09 - infancia y familia.wav', '10 - primeros recuerdos.wav', '11 - escuela.wav', '12 - profesor significativo.wav', '13 - elección de carrera.wav', '14 - momento más feliz de mi vida.wav', '15 - filosofia.wav', '16 - religión y espiritualidad.wav', '17 - conexiónes y amistad.wav', '18 - pasatiempos.wav', '19 - libros peliculas y música.wav', '21 - consejo para mi yo joven.wav', '22 - sentirme orgulloso.wav']
-TOTAL AUDIOS.TXT DETECTED: 22
-AUDIOS.TXT DETECTED: 
-['00 - introducción.txt', '01 - inspiración.txt', '02 - objetivo.txt', '03 - por que mi propia voz.txt', '04 - planes de utilización.txt', '05 - impacto en mi vida y la de los demás.txt', '06 - aprender.txt', '07 - motivación para seguir adelante.txt', '08 - mi nombre y mi nacimiento.txt', '09 - infancia y familia.txt', '10 - primeros recuerdos.txt', '11 - escuela.txt', '12 - profesor significativo.txt', '13 - elección de carrera.txt', '14 - momento más feliz de mi vida.txt', '15 - filosofia.txt', '16 - religión y espiritualidad.txt', '17 - conexiónes y amistad.txt', '18 - pasatiempos.txt', '19 - libros peliculas y música.txt', '21 - consejo para mi yo joven.txt', '22 - sentirme orgulloso.txt']
-Audio data shape: (22, 13, 100)
-Transcripts shape: (22,)
-Encoded and padded transcripts shape: (22, 13)
-LAYERS OF MODEL: [73]
-SAVE MODEL: DATA/model-2024-11-20-21.45.keras
+SAVE MODEL: DATA/model-2024-11-20-21.48.keras

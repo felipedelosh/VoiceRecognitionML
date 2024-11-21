@@ -20,6 +20,24 @@ dataset_path = "dataset/audio"
 transcripts_path = "dataset/transcript"
 audio_files = [f for f in os.listdir(dataset_path) if f.endswith('.wav')]
 print("==============   STEP 0 of X  LOAD AUDIO FILES         ==================")
+_txt = f"TOTAL AUDIOS: {len(audio_files)}"
+print(_txt)
+_LOG = _LOG + _txt + "\n"
+
+
+# 01 - GET MAX DURATION OF AUDIO.WAV
+max_duration = 0
+for audio_file in audio_files:
+    y, sr = librosa.load(os.path.join(dataset_path, audio_file), sr=None)
+    duration = librosa.get_duration(y=y, sr=sr)
+    max_duration = max(max_duration, duration)
+
+# Calcular la longitud máxima en frames (200 ms por frame)
+FRAME_STEP = 0.2  # Tamaño de cada frame en segundos
+MAX_AUDIO_LEN = int(np.ceil(max_duration / FRAME_STEP))
+print("==============   STEP 1 of X  LOAD MAX LEN AUDIO       ==================")
+_LOG = _LOG + f""
+
 
 
 # 00 - Procesing AUDIOS
