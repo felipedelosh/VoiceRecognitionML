@@ -36,11 +36,11 @@ for audio_file in audio_files:
 FRAME_STEP = 0.2  # Tamaño de cada frame en segundos
 MAX_AUDIO_LEN = int(np.ceil(max_duration / FRAME_STEP))
 print("==============   STEP 1 of X  LOAD MAX LEN AUDIO       ==================")
-_LOG = _LOG + f""
+_txt = f"MAX LEN AUDIOS (SEG): {max_duration}"
+print(_txt)
+_LOG = _LOG + _txt + "\n"
 
 
-
-# 00 - Procesing AUDIOS
 def load_audio_file(file_path):
     y, sr = librosa.load(file_path, sr=None)
     return y, sr
@@ -62,6 +62,8 @@ _LOG = _LOG + f"AUDIOS.TXT DETECTED: \n{transcript_files}\n"
 audio_data = []
 transcripts = []
 
+
+print("==============   STEP 2 of X  PROCESS AUDIO's          ==================")
 for audio_file, transcript_file in zip(audio_files, transcript_files):
     y, sr = load_audio_file(os.path.join(dataset_path, audio_file))
     mfccs = extract_features(y, sr)
@@ -75,7 +77,12 @@ for audio_file, transcript_file in zip(audio_files, transcript_files):
         transcripts.append(transcript)
 
 audio_data = np.array(audio_data)
+_shape_audio_input = audio_data.shape
 transcripts = np.array(transcripts)
+print("==============   STEP 3 of X  NEURAL INPUT INFORMATION ==================")
+print(f"Audio data shape: {_shape_audio_input}")
+print(f"Transcripts shape: {transcripts.shape}")
+
 
 _LOG = _LOG + f"Audio data shape: {audio_data.shape}\n" 
 _LOG = _LOG + f"Transcripts shape: {transcripts.shape}\n" 
@@ -137,5 +144,5 @@ print(f"SAVE MODEL: {_output_model_filename}")
 
 
 # SAVE LOGS
-with open("logs.log", "a", encoding="UTF-8") as f:
+with open("logs.log", "w", encoding="UTF-8") as f:
     f.write(_LOG)

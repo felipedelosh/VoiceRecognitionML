@@ -1,4 +1,5 @@
 TOTAL AUDIOS: 22
+MAX LEN AUDIOS (SEG): 346.4
 TOTAL AUDIOS.WAV DETECTED: 22
 AUDIOS.WAV DETECTED: 
 ['00 - introducción.wav', '01 - inspiración.wav', '02 - objetivo.wav', '03 - por que mi propia voz.wav', '04 - planes de utilización.wav', '05 - impacto en mi vida y la de los demás.wav', '06 - aprender.wav', '07 - motivación para seguir adelante.wav', '08 - mi nombre y mi nacimiento.wav', '09 - infancia y familia.wav', '10 - primeros recuerdos.wav', '11 - escuela.wav', '12 - profesor significativo.wav', '13 - elección de carrera.wav', '14 - momento más feliz de mi vida.wav', '15 - filosofia.wav', '16 - religión y espiritualidad.wav', '17 - conexiónes y amistad.wav', '18 - pasatiempos.wav', '19 - libros peliculas y música.wav', '21 - consejo para mi yo joven.wav', '22 - sentirme orgulloso.wav']
@@ -9,4 +10,4 @@ Audio data shape: (22, 13, 100)
 Transcripts shape: (22,)
 Encoded and padded transcripts shape: (22, 13)
 LAYERS OF MODEL: [73]
-SAVE MODEL: DATA/model-2024-11-20-21.48.keras
+SAVE MODEL: DATA/model-2024-11-20-21.57.keras
