@@ -6,8 +6,8 @@ AUDIOS.WAV DETECTED:
 TOTAL AUDIOS.TXT DETECTED: 22
 AUDIOS.TXT DETECTED: 
 ['00 - introducción.txt', '01 - inspiración.txt', '02 - objetivo.txt', '03 - por que mi propia voz.txt', '04 - planes de utilización.txt', '05 - impacto en mi vida y la de los demás.txt', '06 - aprender.txt', '07 - motivación para seguir adelante.txt', '08 - mi nombre y mi nacimiento.txt', '09 - infancia y familia.txt', '10 - primeros recuerdos.txt', '11 - escuela.txt', '12 - profesor significativo.txt', '13 - elección de carrera.txt', '14 - momento más feliz de mi vida.txt', '15 - filosofia.txt', '16 - religión y espiritualidad.txt', '17 - conexiónes y amistad.txt', '18 - pasatiempos.txt', '19 - libros peliculas y música.txt', '21 - consejo para mi yo joven.txt', '22 - sentirme orgulloso.txt']
-Audio data shape: (22, 13, 100)
+Audio data shape: (22, 13, 1732)
 Transcripts shape: (22,)
 Encoded and padded transcripts shape: (22, 13)
 LAYERS OF MODEL: [73]
-SAVE MODEL: DATA/model-2024-11-20-22.10.keras
+SAVE MODEL: DATA/model-2024-11-20-22.23.keras

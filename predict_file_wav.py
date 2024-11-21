@@ -9,7 +9,7 @@ import numpy as np
 from tensorflow.keras.models import load_model
 
 # LOAD MODEL
-model_filename = 'DATA/model-2024-11-20-18.25.keras'
+model_filename = 'DATA/model-2024-11-20-22.23.keras'
 model = load_model(model_filename)
 
 # characters
@@ -25,7 +25,7 @@ def load_audio_file(file_path):
     y, sr = librosa.load(file_path, sr=None)
     return y, sr
 
-def extract_features(y, sr, max_len=100):
+def extract_features(y, sr, max_len=1732):
     mfccs = librosa.feature.mfcc(y=y, sr=sr, n_mfcc=13)
     mfccs = librosa.util.fix_length(mfccs, size=max_len, axis=1)
     return mfccs

@@ -45,7 +45,7 @@ def load_audio_file(file_path):
     y, sr = librosa.load(file_path, sr=None)
     return y, sr
 
-def extract_features(y, sr, max_len=100):
+def extract_features(y, sr, max_len):
     mfccs = librosa.feature.mfcc(y=y, sr=sr, n_mfcc=13)
     mfccs = librosa.util.fix_length(mfccs, size=max_len, axis=1)
     return mfccs
@@ -66,9 +66,9 @@ transcripts = []
 print("==============   STEP 2 of X  PROCESS AUDIO's          ==================")
 for audio_file, transcript_file in zip(audio_files, transcript_files):
     y, sr = load_audio_file(os.path.join(dataset_path, audio_file))
-    mfccs = extract_features(y, sr)
+    mfccs = extract_features(y, sr, MAX_AUDIO_LEN)
     # Save in TEST FOLDER
-    reconstruct(mfccs, sr, audio_file)
+    # reconstruct(mfccs, sr, audio_file)
     # END TO SAVE IN FOLDER TEXT
     audio_data.append(mfccs)
     
@@ -115,7 +115,7 @@ padded_transcripts = np.expand_dims(padded_transcripts, axis=-1)
 
 # Definir el modelo
 model = Sequential()
-model.add(Input(shape=(13, 100)))
+model.add(Input(shape=(_model_n_mfcc, _model_max_len)))
 model.add(LSTM(128, return_sequences=True))
 model.add(TimeDistributed(Dense(len(characters))))
 model.add(Activation('softmax'))
