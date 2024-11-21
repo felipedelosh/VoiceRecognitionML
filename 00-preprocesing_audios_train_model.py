@@ -15,6 +15,13 @@ from tensorflow.keras.layers import LSTM, Dense, TimeDistributed, Activation, Em
 
 _LOG = ""
 
+# 00 Configure path folder
+dataset_path = "dataset/audio"
+transcripts_path = "dataset/transcript"
+audio_files = [f for f in os.listdir(dataset_path) if f.endswith('.wav')]
+print("==============   STEP 0 of X  LOAD AUDIO FILES         ==================")
+
+
 # 00 - Procesing AUDIOS
 def load_audio_file(file_path):
     y, sr = librosa.load(file_path, sr=None)
@@ -25,14 +32,6 @@ def extract_features(y, sr, max_len=100):
     mfccs = librosa.util.fix_length(mfccs, size=max_len, axis=1)
     return mfccs
 
-def mfcc_to_audio(mfccs, sr):
-    # Try to convert MFCC to audio:
-    D = librosa.feature.inverse.mfcc_to_audio(mfccs, sr=sr)
-
-    return D
-
-dataset_path = "dataset/audio"
-transcripts_path = "dataset/transcript"
 
 audio_files = [f for f in os.listdir(dataset_path) if f.endswith('.wav')]
 transcript_files = [f for f in os.listdir(transcripts_path) if f.endswith('.txt')]
