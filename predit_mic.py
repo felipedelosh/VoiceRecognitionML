@@ -33,6 +33,7 @@ WAVE_OUTPUT_FILENAME = "DATA/output.wav"
 audio = pyaudio.PyAudio()
 
 # Iniciar la grabación
+print("...Abiendo micrófono...")
 stream = audio.open(format=FORMAT, channels=CHANNELS, rate=RATE, input=True, frames_per_buffer=CHUNK)
 print("Grabando...")
 

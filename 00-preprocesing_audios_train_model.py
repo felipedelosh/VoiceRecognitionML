@@ -68,7 +68,7 @@ for audio_file, transcript_file in zip(audio_files, transcript_files):
     y, sr = load_audio_file(os.path.join(dataset_path, audio_file))
     mfccs = extract_features(y, sr, MAX_AUDIO_LEN)
     # Save in TEST FOLDER
-    # reconstruct(mfccs, sr, audio_file)
+    reconstruct(mfccs, sr, audio_file)
     # END TO SAVE IN FOLDER TEXT
     audio_data.append(mfccs)
     
