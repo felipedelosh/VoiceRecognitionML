@@ -1,0 +1,1 @@
+Save here all reconstruction (mfccs) to audio.wav and listen then it 

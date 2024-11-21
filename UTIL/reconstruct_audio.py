@@ -14,7 +14,7 @@ def reconstruct_audio(mfccs, sr, output_path):
 
 # Esta función es una entrada para llamar a la reconstrucción desde otro script
 def reconstruct(mfccs, sr, file_name):
-    output_dir = "TEST"
+    output_dir = "TEST/reconstruction"
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
     output_path = os.path.join(output_dir, file_name)
