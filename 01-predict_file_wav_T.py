@@ -10,7 +10,7 @@ import numpy as np
 from tensorflow.keras.models import load_model
 
 # Cargar el modelo
-model_filename = 'DATA/model-2024-11-20-23.26.keras'
+model_filename = 'DATA/model-2024-11-21-12.46.keras'
 model = load_model(model_filename)
 
 # Cargar diccionario de caracteres

@@ -10,7 +10,7 @@ import numpy as np
 from tensorflow.keras.models import load_model
 
 # LOAD MODEL
-model_filename = 'DATA/model-2024-11-20-22.23.keras'
+model_filename = 'DATA/model-2024-11-21-12.46.keras'
 model = load_model(model_filename)
 
 # characters
@@ -36,6 +36,7 @@ def extract_features(y, sr, max_len=1732):
 y, sr = load_audio_file(AUDIO_FILENAME)
 mfccs = extract_features(y, sr)
 mfccs = np.expand_dims(mfccs, axis=0)
+print(f"mfccs Dimensions: {mfccs.shape}")
 
 # Decodificar las predicciones
 def decode_predictions(preds):

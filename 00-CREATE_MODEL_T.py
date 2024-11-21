@@ -69,7 +69,6 @@ for audio_file, transcript_file in zip(audio_files, transcript_files):
     except ValueError as e:
         print(f"Error al procesar el audio: {e}")
     
-    print(f"Audio Dimensions: {np.expand_dims(mfccs, axis=0)}")
     audio_data.append(mfccs)
     
     with open(os.path.join(transcripts_path, transcript_file), 'r', encoding="UTF-8") as f:
